@@ -10,25 +10,15 @@ import UIKit
 
 class CalculatorViewController: UIViewController
 {
-
     @IBOutlet weak var displayLabel: UILabel!
     
     var userIsInTheMiddleOfTyping: Bool = false
-    var operandStack:Array<Double> = []
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    var brain = CalculatorBrain()
 
     @IBAction func touchDigit(sender: UIButton) {
         let digit = sender.currentTitle!
-        print("\(digit)")
+        //print("\(digit)")
         if userIsInTheMiddleOfTyping
         {
             let textCurrentlyDisplay = displayLabel.text!
@@ -59,8 +49,14 @@ class CalculatorViewController: UIViewController
     {
         print("press enter")
         userIsInTheMiddleOfTyping = false
-        operandStack.append(displayValue)
-        print("operand stack = \(operandStack)")
+        if let result = brain.pushOperand(displayValue)
+        {
+            displayValue = result
+        }
+        else
+        {
+            displayValue = 0
+        }
     }
     
     @IBAction func performOperation(sender: UIButton)
@@ -68,55 +64,19 @@ class CalculatorViewController: UIViewController
         if(userIsInTheMiddleOfTyping)
         {
             enter()
-            userIsInTheMiddleOfTyping = false
         }
-        userIsInTheMiddleOfTyping = false
+        
         if let mathSymbol = sender.currentTitle
         {
-            switch mathSymbol {
-            case "+":
-                performCalculation2({(op1:Double, op2:Double) -> Double in
-                      return op1+op2
-                    })
-            case "-":
-                performCalculation2({(op1,op2) in op2-op1
-                })
-            case "*":
-                performCalculation2({$0 * $1})
-                // performCalculation{$0 * $1}
-                // performCalculation() {$0 * $1}
-            case "/":
-                performCalculation2(divide)
-            case "√":
-                performCalculation1({sqrt($0)})
-            default:
-                break
-                
+            if let result = brain.performOperation(mathSymbol)
+            {
+                displayValue = result
+            }
+            else
+            {
+                displayValue = 0
             }
         }
-    }
-    
-    func performCalculation2(operation:(Double, Double) -> Double)
-    {
-        if(operandStack.count >= 2)
-        {
-            displayValue = operation(operandStack.removeLast(),operandStack.removeLast())
-            enter()
-        }
-    }
-    
-    func performCalculation1(operation: Double -> Double)
-    {
-        if(operandStack.count >= 1)
-        {
-            displayValue = operation(operandStack.removeLast())
-            enter()
-        }
-    }
-    
-    func divide(op1:Double, _ op2:Double) -> Double
-    {
-        return op2/op1
     }
 }
 

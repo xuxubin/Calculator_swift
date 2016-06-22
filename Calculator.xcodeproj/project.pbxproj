@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE9356B91D1A3AD7008E1A02 /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9356B81D1A3AD7008E1A02 /* CalculatorBrain.swift */; };
 		CEA598FC1CE9F39D00882640 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA598FB1CE9F39D00882640 /* AppDelegate.swift */; };
 		CEA598FE1CE9F39D00882640 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA598FD1CE9F39D00882640 /* CalculatorViewController.swift */; };
 		CEA599011CE9F39D00882640 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA598FF1CE9F39D00882640 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE9356B81D1A3AD7008E1A02 /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
 		CEA598F81CE9F39D00882640 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA598FB1CE9F39D00882640 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEA598FD1CE9F39D00882640 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				CEA598FD1CE9F39D00882640 /* CalculatorViewController.swift */,
+				CE9356B81D1A3AD7008E1A02 /* CalculatorBrain.swift */,
 				CEA598FF1CE9F39D00882640 /* Main.storyboard */,
 				CEA5990D1CE9F53000882640 /* Supporting Files */,
 			);
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE9356B91D1A3AD7008E1A02 /* CalculatorBrain.swift in Sources */,
 				CEA598FE1CE9F39D00882640 /* CalculatorViewController.swift in Sources */,
 				CEA598FC1CE9F39D00882640 /* AppDelegate.swift in Sources */,
 			);
